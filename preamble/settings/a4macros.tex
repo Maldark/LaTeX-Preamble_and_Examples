@@ -1,0 +1,62 @@
+\usepackage{authblk}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    Macro: Title and Author       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setvalue{title = }
+\setvalue{subtitle = }
+
+\DeclareDocumentCommand \settitle { m g }{                 % \setTitle{title}{subtitle}
+     \setvalue{title = #1}
+     \IfValueTF {#2} { \setvalue{subtitle = #2} \title{\huge \getvalue{title} \\ \large \getvalue{subtitle}}}
+                      { \title{\huge \getvalue{title}} }
+}
+
+\DeclareDocumentCommand \addauth { m g g }{                % \addAuth{name}{email}{id}
+     \IfValueT {#3} {                                      % Set the id text as desired on the top left
+         \setvalue{id = #3}
+     }
+     \pgfkeysifdefined{/variables/name}{
+         \setvalue{id = \, et al}
+     }{
+         \setvalue{name = #1}
+     }     
+     \author{#1}
+     \IfValueT {#2} {
+        \pgfkeysifdefined{/variables/email}{
+            % Do Nothing
+        }{
+             \setvalue{email = #2}
+         }
+         \IfValueTF {#3} {
+         	\affil{#3, \protect\href{mailto:#2}{#2}}
+         }
+         {
+         	\affil{\protect\href{mailto:#2}{#2}}
+         }
+     }
+}
+
+\settitle{Keep Calm and \textbackslash settitle}
+
+\date{\today}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Macro: Headers and footers     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Headers:
+%  Unused pieces of code
+%     Name of writers   \protect\href{\getvalue{email}}{\getvalue{name}\getvalue{id}}
+%     "of X pages"      \getvalue{of} \pageref{LastPage}
+
+%Odd pages (Main for onesided)
+
+\fancyhead[RO]{\thepage}
+\fancyhead[LO]{\getvalue{title}}
+
+%Even pages
+\fancyhead[RE]{\nouppercase{\leftmark}}
+\fancyhead[LE]{\thepage}
+
+%Nothing below
+\fancyfoot[LCR]{}

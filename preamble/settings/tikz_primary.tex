@@ -1,0 +1,12 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%            Tikz              %
+%                              %
+%    Import this one before    %
+%     any other 'tikz_x.tex'   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tikz}                                % import basepackage
+\usetikzlibrary{calc}                            % Coordinate calcuations
+\usetikzlibrary{positioning}                     % Relative positioning
+
+% Macro for circle with symbol inside.
+\newcommand*\circled[1]{ \tikz[baseline=(C.base)]\node[draw,circle,inner sep=0.5pt](C) {#1};\!}

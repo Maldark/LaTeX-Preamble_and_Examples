@@ -1,0 +1,79 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%            Code              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\code}[1]{{\sf #1}}                    % \code{X} writes X in a code-appropriate font
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%         lstlisting           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Import lstlistings - beautiful sourcecode!
+\usepackage{listings}
+
+
+% Custom language definitions
+% Definition of Pseudocode
+\lstdefinelanguage{pseudocode}{
+  keywords=[1]{
+           break, break, by, do, downto, else, elif, error, for, if, let, repeat, return, then, to, until, while, while
+      },                                           % list of keywords, first and last are not used for some stupid reason
+  keywords=[2]{
+        and, and, or, NIL, NIL
+  }
+  sensitive=false,                                 % keywords are not case-sensitive
+  morecomment=[l]{//},                             % l is for line comment
+  morecomment=[s]{/*}{*/},                         % s is for start and end delimiter
+  morestring=[b]"                                  % strings are enclosed in double quotes
+}
+
+
+% lstlisting - General settings
+\lstset{
+  language=pseudocode,                             % choose language
+  escapeinside={*@}{@*},                           % if you want to add LaTeX within your code
+  literate={æ}{{\ae}}1{ø}{{\oe}}1{å}{{\aa}}1       % allow æ, ø and å in code
+           {Æ}{{\AE}}1{Ø}{{\O}}1{Å}{{\AA}}1,       %     (this change was taken from the preamble of the MatFysTutor LaTeX Guide)
+}
+
+% lstlisting - Whitespace
+\lstset{
+  showspaces=false,                                % show spaces everywhere - adding particular underscores
+  showstringspaces=false,                          % underline spaces within strings only.
+  showtabs=false,                                  % show tabs within strings adding particular underscores.
+  % breaklines=true,                                 % automatically break lines
+  % breakatwhitespace=true,                          % automatically break should there only be white space.
+  tabsize=4                                        % tab width
+}
+
+% lstlisting - Colors, font and styling
+\lstset{
+  stepnumber=1,                                       % step between to line-numbers. 1 = each line is numbered
+  numbers=left,                                       % numbering: none, left, right
+  numbersep=5pt,                                      % distance between linenumbers and code
+  numberstyle=\color{lstComment},                     % change style of numbering - currently grey.
+  columns=[c]fixed,                                   % makes it monospaced
+  basicstyle=\ttfamily \color{lstBase},  % set basic color
+  commentstyle=\color{lstComment},                    % set color of comments
+  keywordstyle=[1]\color{lstKey},                     % set color of primary keywords
+  keywordstyle=[2]\color{lstKey2},                    % set color of secondary keywords
+  stringstyle=\color{lstString},                      % set color of strings
+}
+
+% lstlisting - Put it beautifully in the middle
+% Currently off, since captions are misbehaving
+% \lstset{
+%   xleftmargin= .1\textwidth,                       % leftmargin being 10% of the current width
+%   xrightmargin= .1\textwidth,                      % right margin also 10%
+% }
+
+% lstlisting - Minimalistic borders and captions
+\lstset{
+  frame=top,                                       % bar on top
+  frame=bottom,                                    % bar on bottom
+  captionpos=b                                     % caption at the bottom
+}
+\DeclareCaptionFormat{listing}{\makebox[0.5in][l]{#1#2}\parbox[t]{\dimexpr \captionwidth-0.5in}{#3}\hline}
+\captionsetup[lstlisting]{format=listing, singlelinecheck=off, labelsep=colon}

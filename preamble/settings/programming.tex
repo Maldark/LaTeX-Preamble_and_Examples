@@ -1,0 +1,25 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%           Variables              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{pgfkeys}                                       % Initialize the variable key-value parirs
+
+\newcommand{\setvalue}[1]{\pgfkeys{/variables/#1}}
+\newcommand{\getvalue}[1]{\pgfkeysvalueof{/variables/#1}}
+\newcommand{\declare}[1]{%
+ \pgfkeys{
+  /variables/#1.is family,
+  /variables/#1.unknown/.style = {\pgfkeyscurrentpath/\pgfkeyscurrentname/.initial = ##1}
+ }%
+}
+
+\declare{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%      LaTeX Programming       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{xparse}                                         % Scanning arguments
+\usepackage{xifthen}                                        % Conditionals
+\usepackage{xstring}                                        % String functions
+\usepackage{calc}                                           % Calculations
+
