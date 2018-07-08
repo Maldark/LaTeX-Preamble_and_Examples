@@ -1,0 +1,61 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Load Preample         %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4, english, twoside]{article}
+
+%Import from the same folder
+%\input{article_en.tex}
+
+%Import from absolute path
+%\usepackage{import}
+%\import{C:/GitHub/LaTeX_Preamble_and_Examples/preamble/}{article_en.tex}
+
+%Import from a relative path
+\usepackage{import}
+\subimport{../preamble/}{article_en.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Load Bibliography     %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\addbibresource{article.bib}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Article starts here   %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\title{Project Name}
+
+\author{Steffan Sølvsten}
+\author{Second Author}
+\author{Third Author}
+\affil{
+  Aarhus University
+  \\ \code{\mailto{201505832@post.au.dk}}
+}
+
+\date{8. December, 1994}
+
+\maketitle
+
+\begin{abstract}
+  We describe ...
+\end{abstract}
+
+\tableofcontents
+
+\newpage
+\section{Introduction} \label{sec:introduction}
+There is no doubt, that ... where we cite \cite{doe10a} \cite{doe10b} and \cite{website}
+
+\section{Conclusions} \label{sec:conclusions}
+In conclusion...
+
+\section{Future Work} \label{sec:future_work}
+
+\clearpage
+\printbibliography
+
+\end{document}

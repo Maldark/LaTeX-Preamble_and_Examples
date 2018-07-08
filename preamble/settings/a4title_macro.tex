@@ -1,5 +1,3 @@
-\usepackage{authblk}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    Macro: Title and Author       %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -40,23 +38,3 @@
 \settitle{Keep Calm and \textbackslash settitle}
 
 \date{\today}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%   Macro: Headers and footers     %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Headers:
-%  Unused pieces of code
-%     Name of writers   \protect\href{\getvalue{email}}{\getvalue{name}\getvalue{id}}
-%     "of X pages"      \getvalue{of} \pageref{LastPage}
-
-%Odd pages (Main for onesided)
-
-\fancyhead[RO]{\thepage}
-\fancyhead[LO]{\getvalue{title}}
-
-%Even pages
-\fancyhead[RE]{\nouppercase{\leftmark}}
-\fancyhead[LE]{\thepage}
-
-%Nothing below
-\fancyfoot[LCR]{}

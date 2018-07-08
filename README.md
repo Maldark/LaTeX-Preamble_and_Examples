@@ -36,15 +36,19 @@ On Unix
 ```
 
 # Documents
-This repository contains three documents, _template_report.tex_, _template_blank.tex_ and _example.tex._
-## template_report.tex and template_blank.tex
-With *template_report.tex* you have a very small and sparse document, in which already the preamble, abstract, title, bibliography and two sections are ready for use. This should get you started much faster.
-![Alt text](/img/template.png?raw=true "The template file")
+This repository the following four documents
 
-With *template_blank.tex* you simultaneously have a completely blank document with nothing more than just the title.
+## handin.tex
+A sparse template to use for handins in different courses.
+
+## article.tex
+A sparse template for an academic article
+
+## project.tex
+A sparse template for a bigger project
 
 ## examples.tex
-A slowly growing document with explanations and examples of using the various packages in the preamble. They are all made with the intent to be reverse engineerable.
+This is a a slowly growing document with explanations and examples of using the various packages in the preamble. They are all made with the intent to be reverse engineerable.
 ![Alt text](/img/example.png?raw=true "The template file")
 
 # Python Template Generator
@@ -53,3 +57,6 @@ In the folder Python you can find a Python Template Generator, created by Kristi
 This is especially useful for ShareLatTeX since you can add a --zip argument to zip the template into a ShareLaTeX compatible format for easy upload.
 
 The *latexgen.py* file can be found under [Releases](https://github.com/SSoelvsten/LaTeX-Preamble_and_Examples/releases)
+
+## Notice
+This script has not been updated for the new refactored multi-file preamble and does not currently work.
